@@ -6,6 +6,8 @@ services:
       - "3000:3000"
     depends_on:
       - backend
+    networks:
+      - app-network 
 
   backend:
     build: ./backend
@@ -13,3 +15,8 @@ services:
       - "5000:5000"
     env_file:
       - ./backend/.env
+    networks:
+      - app-network  
+
+networks:
+  app-network:    
